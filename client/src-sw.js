@@ -2,7 +2,9 @@ const { CacheFirst } = require('workbox-strategies');
 const { registerRoute } = require('workbox-routing');
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
+importScripts('workbox-v5.1.3/workbox-sw.js');
 
+workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 // Cache CSS, JavaScript, and Web Worker files with a Cache First strategy
 registerRoute(
   // Define a callback function that will filter the requests to cache
